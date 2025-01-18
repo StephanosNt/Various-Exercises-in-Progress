@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{.Artist.Name}} - Details</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <header>
+        <h1>{{.Artist.Name}}</h1>
+        <a href="/">Back to Home</a>
+    </header>
+    <main>
+        <section class="artist-details">
+            <img src="{{.Artist.Image}}" alt="{{.Artist.Name}} Image">
+            <p><strong>Formed:</strong> {{.Artist.YearFormed}}</p>
+            <p><strong>First Album:</strong> {{.Artist.FirstAlbum}}</p>
+            <h2>Members</h2>
+            <ul>
+                {{range .Artist.Members}}
+                <li>{{.}}</li>
+                {{end}}
+            </ul>
+            <h2>Concert Locations</h2>
+            <ul>
+                {{range .Location.Locations}}
+                <li>{{.}}</li>
+                {{end}}
+            </ul>
+            <h2>Concert Dates</h2>
+            <ul>
+                {{range .Dates.Dates}}
+                <li>{{.}}</li>
+                {{end}}
+            </ul>
+        </section>
+    </main>
+</body>
+</html>
